@@ -1,6 +1,6 @@
 # grunt-contrib-manifest
 
-manifest task ported from Yeoman
+A port of Yeoman manifest task for Grunt 0.4
 
 ## Getting Started
 Install this grunt plugin next to your project's [Gruntfile][getting_started] with: `npm install grunt-contrib-manifest`
