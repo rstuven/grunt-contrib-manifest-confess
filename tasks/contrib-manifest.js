@@ -42,18 +42,18 @@ module.exports = function(grunt) {
   //
   //
   grunt.registerTask('manifest', 'Generates an application cache manifest using Confess.js.', function() {
-    // port of the url to cache
-    var port = grunt.config('server.port') || 3501;
-
+    
+    var config = grunt.config('manifest');
+    
     // default options
     var options = grunt.util._.defaults(grunt.config(this.name) || {}, {
       // confess task, set via first grunt task arg (default: appcache)
       // performance, appcache, cssproperties
       task: this.args[0] || 'appcache',
       // output file
-      output: 'manifest.appcache',
+      output: config.dest,
       // port of the url to cache,
-      port: port,
+      port: config.port,
       // hostname of the url to cache
       hostname: 'localhost',
       // basedir
