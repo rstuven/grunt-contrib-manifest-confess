@@ -9,7 +9,8 @@ var join    = path.join;
 var fstream = require('fstream');
 
 module.exports = function(grunt) {
-  
+  'use strict';
+
   var helpers = require('../lib/manifest-helpers')(grunt); 
 
   // Launch a built-in webserver on the specified directory and run confess through phantomjs.
@@ -41,12 +42,12 @@ module.exports = function(grunt) {
   //    }
   //
   //
-  grunt.registerTask('manifest', 'Generates an application cache manifest using Confess.js.', function() {
+  grunt.registerMultiTask('manifest', 'Generates an application cache manifest using Confess.js.', function() {
     
-    var config = grunt.config('manifest');
+    var config = this.data;
     
     // default options
-    var options = grunt.util._.defaults(grunt.config(this.name) || {}, {
+    var options = grunt.util._.defaults(config || {}, {
       // confess task, set via first grunt task arg (default: appcache)
       // performance, appcache, cssproperties
       task: this.args[0] || 'appcache',
